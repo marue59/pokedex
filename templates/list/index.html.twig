@@ -1,0 +1,61 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <div class="container-fluid">
+        <h1 class="text-center m-3">La liste de Pokemons</h1>
+        <p class="text-justify m-5">
+            " Une génération est un regroupement de jeux Pokémon qui les sépare en fonction des Pokémon qu'ils incluent.
+            À chaque génération, un nouvel ensemble de Pokémon, de mouvements, de capacités et de types qui n'existaient 
+            pas dans la génération précédente est publié. "
+        </p>
+    </div>
+
+    <div class="m-5 text-center">
+        <h5 class="text-center">Je souhaite trier par :</h5>
+        <p> 
+            <button class="btn btn-primary" type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#collapseName" 
+                aria-expanded="false" 
+                aria-controls="collapseName">Nom
+            </button>
+            <button class="btn btn-primary" type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#collapseNum" 
+                aria-expanded="false" 
+                aria-controls="collapseNum">Numero
+            </button>
+            <button class="btn btn-primary" type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#collapseType" 
+                aria-expanded="false" 
+                aria-controls="collapseType">Type
+            </button>
+        </p>
+
+        <div class="collapse" id="collapseName">
+            <div class="card card-body">
+                {% for result in type.results %}
+                    <button type="button" class="btn btn-outline-info m-2">
+                        <a href="" class="text-center text-decoration-none text-dark" style="width: 12rem;">{{result.name}}</a>
+                    </button>
+                {% endfor %}
+            </div>
+        </div> 
+        <div class="d-flex flex-wrap justify-content-center">
+            <div class="collapse" id="collapseType">
+                <div class="card card-body bg-dark">
+                    <button>
+                        <a href="" class="text-center m-2" style="width: 8rem;"></a>
+                    </button>
+                </div>
+            </div> 
+            <div class="collapse" id="collapseNum">
+                <div class="card card-body bg-dark">
+                    <button>
+                        <a href="" class="text-center m-2" style="width: 8rem;"></a>
+                    </button>
+                </div>
+            </div> 
+        </div>
+    </div> 
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <div class="container-fluid">
+        <h1 class="text-center m-3">Les générations de Pokemons</h1>
+        <p class="text-justify m-5">
+        " Une génération est un regroupement de jeux Pokémon qui les sépare en fonction des Pokémon qu'ils incluent.
+        À chaque génération, un nouvel ensemble de Pokémon, de mouvements, de capacités et de types qui n'existaient 
+        pas dans la génération précédente est publié. "
+        </p>
+        <div class="d-flex flex-wrap justify-content-center">
+            {% for result in generation.results %}
+                <div class="m-3">
+                    <div class="card" style="width: 12rem;">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">{{result.name}}</h5>
+                            <a href="#" class="btn btn-success">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>   
+            {% endfor %}
+        </div>   
+    </div>
+{% endblock %}
