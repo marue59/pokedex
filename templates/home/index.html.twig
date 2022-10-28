@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <h1 class="text-center m-3">Les Pokemons</h1>
+    <p class="text-justify m-3 p-5">
+        " Les Pokémon sont les créatures qui peuplent le monde des jeux Pokémon. 
+        Ils peuvent être attrapés à l'aide de Pokéballs et entraînés en combattant d'autres Pokémon. 
+        Chaque Pokémon appartient à une espèce spécifique mais peut prendre une variante qui le différencie 
+        des autres Pokémon de la même espèce, comme les statistiques de base, les capacités disponibles et les typages. "
+    </p>
+</div>
+
+
+<div class="d-flex flex-wrap justify-content-center mt-3">
+    {% for result in data.results %}
+        <div class="card m-3" style="width: 10rem;">
+            <div class="card-body text-center ">
+                <a href="" class="text-decoration-none text-dark">{{result.name}}</a>
+            </div>
+        </div>
+    {% endfor %}  
+</div>
+<h1 class="text-center m-5">Les Pokemons par générations</h1>
+<div class="d-flex flex-wrap justify-content-center mt-3">
+    {% for result in generation.results %}        
+    <div class="card m-3" style="width: 10rem;">
+        <div class="card-body text-center ">
+            <a href="" class="text-decoration-none text-dark">{{result.name}}</a>
+        </div>
+    </div>
+    {% endfor %}  
+</div>
