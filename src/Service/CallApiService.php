@@ -17,7 +17,7 @@ private $client;
     // Récuperer le detail d'un pokemon par nom
     public function getPokemonData($name): array
     {
-        return $this->getApi('pokemon' .$name);
+        return $this->getAllPokemon( '' . $name );
     }
 
     // Récuperer tous les pokemons

@@ -14,8 +14,8 @@ class HomeController extends AbstractController {
     public function home(CallApiService $callApiService) : Response
     {
         return $this->render('base.html.twig', [
-            'data'=> $callApiService->getAllPokemon(),
+            'data'=> $callApiService->getAllPokemon(), 
+            'generation'=>$callApiService->getAllGeneration(),
         ]);
     }
-    
 }

@@ -1,15 +1,3 @@
 controllers:
-  resource: ../src/Controller/HomeController.php
+  resource: ../src/Controller/
   type: attribute
-
-generation:
-  path: /generation
-  controller: App\Controller\GenerationController::index
-
-list:
-  path: /list
-  controller: App\Controller\ListController::list
-
-personnage:
-  path: /perso
-  controller: App\Controller\PersonnageController::show
