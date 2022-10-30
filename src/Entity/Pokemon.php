@@ -22,6 +22,16 @@ class Pokemon
     #[ORM\Column(nullable: true)]
     private ?int $numero = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $url = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $generation = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $generationUrl = null;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +69,42 @@ class Pokemon
     public function setNumero(?int $numero): self
     {
         $this->numero = $numero;
+
+        return $this;
+    }
+
+    public function getUrl(): ?string
+    {
+        return $this->url;
+    }
+
+    public function setUrl(string $url): self
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    public function getGeneration(): ?string
+    {
+        return $this->generation;
+    }
+
+    public function setGeneration(string $generation): self
+    {
+        $this->generation = $generation;
+
+        return $this;
+    }
+
+    public function getGenerationUrl(): ?string
+    {
+        return $this->generationUrl;
+    }
+
+    public function setGenerationUrl(string $generationUrl): self
+    {
+        $this->generationUrl = $generationUrl;
 
         return $this;
     }

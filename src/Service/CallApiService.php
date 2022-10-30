@@ -38,8 +38,6 @@ private $client;
         return $this->getApi('generation');
     }
 
-    
-    // Utilisable que dans le service
     // Cabler l'api
     private function getApi(string $var)
     {
@@ -51,6 +49,6 @@ private $client;
         );
 
         return $response->toArray();
-    }
+    }  
 }
 ?>
