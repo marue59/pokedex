@@ -25,44 +25,47 @@ class CallApiCommand extends Command
 
     public function __construct(CallApiService $callApiService, EntityManagerInterface $em) 
     {
-        $this->api = $callApiService->getAllPokemon(); 
-        $this->generation = $callApiService->getAllGeneration(); 
-        $this->type = $callApiService->getType();
+        $this->callApiService = $callApiService;
         $this->em = $em;
         parent::__construct();
     }
     
     protected function configure(): void
     {
-        $this
-            ->addOption('pokemon', null, InputOption::VALUE_NONE, "Appel a l'Api Pokedex")
-        ;
+       
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $pokemon = $input->getOption('pokemon'); 
-
-        $pokemon = $this->api["results"];
-        $generation = $this->generation["results"];
-        $type = $this->type["results"];
-//dd($pokemon);  
-//dd($type); 
-//dd($generation);  
-        // Boucler sur chaque pokemon 
-        foreach ($pokemon as $pokemons) { 
-            $pokemon = new Pokemon();
-      
-            $pokemon->setName($pokemons['name']);    
-            $pokemon->setUrl($pokemons['url']);
-
-            $pokemon->setGeneration($pokemons['name']);
-            $pokemon->setGenerationUrl($pokemons['url']);
-           
-            $pokemon->setType($pokemons['name']);
-                
+        $pokemons = $this->callApiService->getAllPokemon();
         
-            $this->em->persist($pokemon);
+        // Boucler sur chaque pokemon 
+        foreach ($pokemons["results"] as $pokemon) { 
+            $entity = new Pokemon();
+            
+            $data = $this->callApiService->getPokemonData($pokemon['name']);
+            
+            $entity->setNumero($data['id']);
+            $entity->setName($pokemon['name']);      
+            $entity->setUrl($pokemon['url']);
+            $entity->setType($data['types'][0]['type']['name']);
+
+          
+           
+                //$dataGeneration = $this->callApiService->getAllGeneration(["name"]);
+                //$dataGenerationUrl = $this->callApiService->getAllGeneration(['url']);
+           /*
+           if(empty ($data['past_types'])) {
+                $entity->setGeneration('past_types');
+                $entity->setGenerationUrl('past_types_url'); 
+               
+           }else {
+                $entity->setGeneration($data['past_types'][0]['generation']['name']);
+                $entity->setGenerationUrl($data['past_types'][0]['generation']['url']);
+           }
+            */ 
+            
+             $this->em->persist($entity);
       
         }
       
