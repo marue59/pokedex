@@ -16,7 +16,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 #[AsCommand(
     name: 'callApi',
-    description: 'Commande pour mettre à jour les pokemons ainsi que leur type, leur génération.'
+    description: 'call Api',
 )]
 class CallApiCommand extends Command
 {
@@ -63,7 +63,7 @@ class CallApiCommand extends Command
                 
         
             $this->em->persist($pokemon);
-
+      
         }
       
         $this->em->flush();

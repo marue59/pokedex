@@ -6,25 +6,48 @@
         Chaque Pokémon appartient à une espèce spécifique mais peut prendre une variante qui le différencie 
         des autres Pokémon de la même espèce, comme les statistiques de base, les capacités disponibles et les typages. "
     </p>
-</div>
-
-
-<div class="d-flex flex-wrap justify-content-center mt-3">
-    {% for result in data.results %}
+    <div class="d-flex flex-wrap justify-content-center mt-3">
+        {% for result in data.results %}
+            <div class="card m-3" style="width: 10rem;">
+                <div class="card-body text-center ">
+                    <h5 class="card-title">{{result.name}}</h5>
+                    <p class="card-text">Numero national</p>
+                    <div class="card-footer text-muted">
+                        type
+                    </div>
+                    <a href="{{ path('name', { 'name' : result.name })}}" class="btn btn-secondary text-decoration-none text-dark">En savoir plus</a>
+                </div>
+            </div>
+        {% endfor %}  
+    </div>
+    <h1 class="text-center mt-4 m-3">Les Pokemons par générations</h1>
+    <p class="text-justify m-3 p-5">
+        " Une génération est un regroupement de jeux Pokémon qui les sépare en fonction des Pokémon qu'ils incluent.
+        À chaque génération, un nouvel ensemble de Pokémon, de mouvements, de capacités et de types qui n'existaient 
+        pas dans la génération précédente est publié. "
+    </p>
+    <div class="d-flex flex-wrap justify-content-center mt-3">
+        {% for result in generation.results %}        
         <div class="card m-3" style="width: 10rem;">
             <div class="card-body text-center ">
-                <a href="" class="text-decoration-none text-dark">{{result.name}}</a>
+                <a href="{{ path('generation')}}" class="text-decoration-none text-dark">{{result.name}}</a>
+            </div>
+        </div>
+        {% endfor %}  
+    </div>
+    <h1 class="text-center mt-4 m-3">Les Pokemons par type</h1>
+    <p class="text-justify m-3 p-5">
+        " Les types sont des propriétés pour les Pokémon et leurs mouvements. Chaque type a trois propriétés : 
+        contre quels types de Pokémon il est super efficace, contre quels types de Pokémon il n'est pas très efficace
+         et contre quels types de Pokémon il est totalement inefficace. "
+    </p>
+    <div class="d-flex flex-wrap justify-content-center mt-3">
+    {% for result in type.results %}
+        <div class="card m-3" style="width: 10rem;">
+            <div class="card-body text-center ">
+                <a href="{{ path('type', { 'name' : result.name })}}" class="text-decoration-none text-dark">{{result.name}}</a>
             </div>
         </div>
     {% endfor %}  
-</div>
-<h1 class="text-center m-3">Les Pokemons par générations</h1>
-<div class="d-flex flex-wrap justify-content-center mt-3">
-    {% for result in generation.results %}        
-    <div class="card m-3" style="width: 10rem;">
-        <div class="card-body text-center ">
-            <a href="" class="text-decoration-none text-dark">{{result.name}}</a>
-        </div>
     </div>
-    {% endfor %}  
 </div>
