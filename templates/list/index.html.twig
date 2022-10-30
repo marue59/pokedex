@@ -7,27 +7,25 @@
             À chaque génération, un nouvel ensemble de Pokémon, de mouvements, de capacités et de types qui n'existaient 
             pas dans la génération précédente est publié. "
         </p>
-    </div>
-    <div class="m-5 text-center">
-        <h5 class="text-center">Je souhaite trier par :</h5>
-        <p class="d-flex flex-wrap justify-content-around"> 
-            <button class="btn btn-info" type="button" 
-                data-bs-toggle="collapse" 
-                data-bs-target="#collapseName" 
-                aria-expanded="false" 
-                aria-controls="collapseName">Nom
-            </button>
-            <button class="btn btn-info" type="button" 
-                data-bs-toggle="collapse" 
-                data-bs-target="#collapseType" 
-                aria-expanded="false" 
-                aria-controls="collapseType">Type
-            </button>
-        </p>
-
-
-        <div class="d-flex flex-wrap justify-content-around">
-            <div class="collapse" id="collapseName">
+    
+        <div class="col-10 d-flex justify-content-center">
+            <div class="col-2 bg-light">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Par nom</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Par type</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Par génération</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Par numéros</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-8 bg-secondary">
                 <div class="card card-body">
                     {% for result in data.results %}
                         <button type="button" class="btn btn-outline-info m-2">
@@ -35,9 +33,6 @@
                         </button>
                     {% endfor %}
                 </div>
-            </div> 
-        
-            <div class="collapse" id="collapseType">
                 <div class="card card-body">  
                     {% for result in type.results %}
                         <button type="button" class="btn btn-outline-info m-2">
@@ -45,7 +40,8 @@
                         </button>         
                 {% endfor %}
                 </div>
-            </div> 
+            </div>
         </div>
-    </div> 
+    </div>
+ 
 {% endblock %}

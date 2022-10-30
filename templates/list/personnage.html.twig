@@ -1,2 +1,14 @@
-
-<h1 >coucou</h1>
+{% extends "base.html.twig" %}
+{% block body %}
+    <div class="container">
+        <h1 class="text-center m-3">Nom</h1>
+            <div class="card mb-3">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Nom</h5>
+                    <p class="card-text">Type de pokemon</p>
+                    <p class="card-text"><small class="text-muted">Génération</small></p>
+                </div>
+            </div>   
+    </div>
+{% endblock %}
