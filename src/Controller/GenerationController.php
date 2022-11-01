@@ -13,12 +13,6 @@ class GenerationController extends AbstractController {
     #[Route('/generation', name:"generation")]
     public function index(CallApiService $callApiService) : Response
     {
-       //dd($callApiService->getAllGeneration());
-       /* $em = $this->getDoctrine()->getManager();
-
-        $em->persist($callApiService);
-        $em->flush();
-*/
         return $this->render('generation/index.html.twig', [
             'generation'=>$callApiService->getAllGeneration(),
         ]);

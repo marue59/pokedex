@@ -15,9 +15,9 @@ private $client;
     }
     
     // Récuperer le detail d'un pokemon par nom
-    public function getPokemonData($name): array
+    public function getPokemonData(string $name): array
     {
-        return $this->getAllPokemon( '' . $name );
+        return $this->getApi('pokemon/'.$name);
     }
 
     // Récuperer tous les pokemons
