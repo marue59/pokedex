@@ -18,6 +18,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
     name: 'callApi',
     description: 'for call Api',
 )]
+// Commande permettant de mettre en base de donnée les datas de l'api
 class CallApiCommand extends Command
 {
     private $callApiService;

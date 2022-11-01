@@ -27,7 +27,7 @@ class UploadCsvService {
                 'Id',
                 'Nom',
                 'Type','\n'
-,';']);
+            ,';']);
 
 
             //Pour les champs

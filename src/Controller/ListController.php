@@ -14,6 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ListController extends AbstractController {
 
     #[Route('/list/{name}', name:"name")]
+    //function permettant d'avoir accés a un pokemon
     public function personnage(PokemonRepository $pokemonRepository, string $name) : Response
     {
          // Récupération d'un tableau d'objet
@@ -36,6 +37,7 @@ class ListController extends AbstractController {
     }
 
     #[Route('/list/type/{type}', name:"type")]
+    //function permettant d'avoir accés aux types de pokemons
     public function listType(EntityManagerInterface $em,
     string $type, PokemonRepository $pokemonRepository,
     Pokemon $pokemon) : Response

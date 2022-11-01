@@ -15,6 +15,8 @@ use Symfony\Component\Console\Output\OutputInterface;
     name: 'callCsv',
     description: 'For download csv',
 )]
+
+// Commande permettant de mettre générer le csv
 class CallCsvCommand extends Command
 {
     private $uploadCsvService;

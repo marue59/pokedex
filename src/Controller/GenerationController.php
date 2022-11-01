@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class GenerationController extends AbstractController {
     
+    //function permettant de chercher les générations de pokemon dans l'api.
     #[Route('/generation', name:"generation")]
     public function index(CallApiService $callApiService) : Response
     {

@@ -12,6 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class HomeController extends AbstractController {
     
     #[Route('/', name:"home")]
+    //function permettant d'afficher les données issues de la bdd
     public function home(PokemonRepository $pokemonRepository) : Response
     {
         
@@ -35,10 +36,9 @@ class HomeController extends AbstractController {
 
     
     #[Route('/export', name:"export")]
+    //function permettant de générer l'exportation des données en csv
     public function exportCsv(UploadCsvService $uploadCsvService, PokemonRepository $pokemonRepository) : Response
     {
-
-        
         return $this->render('home/csv.html.twig', [
             'export'=> $uploadCsvService->export($pokemonRepository),
         ]);
