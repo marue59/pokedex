@@ -1,0 +1,58 @@
+<div class="container-fluid mb-5">
+	<h1 class="text-center m-3">Les Pokemons</h1>
+	<p class="text-justify m-3 p-5">
+		" Les Pokémon sont les créatures qui peuplent le monde des jeux Pokémon. 
+		    Ils peuvent être attrapés à l'aide de Pokéballs et entraînés en combattant d'autres Pokémon. 
+		    Chaque Pokémon appartient à une espèce spécifique mais peut prendre une variante qui le différencie 
+		    des autres Pokémon de la même espèce, comme les statistiques de base, les capacités disponibles et les typages. "
+	</p>
+	<div class="d-flex flex-wrap justify-content-center mt-3">
+		{% for entity in pokemon %}
+			<div class="card m-3" style="width: 12rem;">
+				<div class="card-body text-center ">
+					<h5 class="card-title">{{entity.name}}</h5>
+					<p class="card-text">Numero :
+						{{entity.numero}}</p>
+					<div class="card-footer">Type :
+						{{entity.type}}
+					</div>
+					<a href="{{ path('name', { 'name' : entity.name })}}" class="btn btn-light text-decoration-none text-dark">En savoir plus</a>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+	<h1 class="text-center mt-4 m-3">Les Pokemons par générations</h1>
+	<p class="text-justify m-3 p-5">
+		" Une génération est un regroupement de jeux Pokémon qui les sépare en fonction des Pokémon qu'ils incluent.
+		    À chaque génération, un nouvel ensemble de Pokémon, de mouvements, de capacités et de types qui n'existaient 
+		    pas dans la génération précédente est publié. "
+	</p>
+	<div class="d-flex flex-wrap justify-content-center mt-3">
+		{% for entity in pokemon %}
+			<div class="card m-3" style="width: 10rem;">
+				<div class="card-body text-center ">
+					<a href="{{ path('generation')}}" class="text-decoration-none text-dark">{{entity.generation}}</a>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+	<h1 class="text-center mt-4 m-3">Les Pokemons par type</h1>
+	<p class="text-justify m-3 p-5">
+		" Les types sont des propriétés pour les Pokémon et leurs mouvements. Chaque type a trois propriétés : 
+		    contre quels types de Pokémon il est super efficace, contre quels types de Pokémon il n'est pas très efficace
+		    et contre quels types de Pokémon il est totalement inefficace. "
+	</p>
+	<div class="d-flex flex-wrap justify-content-center mt-3">
+		{% set newArray = [] %}
+		{% for entity in pokemon %}
+			{% if entity.type not in newArray %}
+			<div class="card m-3" style="width: 10rem;">
+				<div class="card-body text-center ">
+					<a href="{{ path('type', { 'type' : entity.type })}}" class="text-decoration-none text-dark">{{entity.type}}</a>
+				</div>
+			</div>
+			{% set newArray = newArray|merge([entity.type]) %}
+   			{% endif %}
+		{% endfor %}
+	</div>
+</div>

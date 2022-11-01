@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+{% block body %}
+	<div class="container w-50">
+		<h1 class="text-center m-3">{{name}}</h1>
+		<div class="card mb-3">
+			<div class="card-body">
+				<h5 class="card-title text-end">Numero :
+					{{numero}}</h5>
+				<p class="card-text text-center">Le pokemon est de type :
+					{{type}}</p>
+				<p class="card-text text-end">
+					<small class="text-muted">Le
+						{{name}}
+						est de génération : {{generation}}</small>
+				</p>
+			</div>
+		</div>
+	</div>
+{% endblock %}
